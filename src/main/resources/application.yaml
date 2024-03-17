@@ -1,0 +1,35 @@
+# properties
+#../../../
+spring:
+  application:
+    name: PP_SpringBoot
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    generate-ddl: true
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  main:
+    allow-circular-references: true
+springdoc:
+  writer-with-default-pretty-printer: true
+  show-actuator: false
+  swagger-ui:
+    path: /swagger-ui
+    enabled: ${SWAGGER_ENABLED:true}
+  api-docs:
+    path: /swagger-json
+    enabled: ${SWAGGER_ENABLED:true}
